@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "544671804758",
+    "project_id": "runnerpm01",
+    "storage_bucket": "runnerpm01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544671804758:android:89fbe298c39f4fe5cb3af7",
+        "android_client_info": {
+          "package_name": "hn.uth.runner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChlwXzU_QD9BD4AZizhI6p0G10lPpGgd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
