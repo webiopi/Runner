@@ -15,10 +15,10 @@
         android:text="@string/title"
         android:textSize="24sp"
         android:textStyle="italic"
-        android:translationY="0sp" />
+        android:translationY="10sp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/EtCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,21 +27,34 @@
         android:translationY="100sp" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etContra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:translationY="150sp" />
+        android:translationY="150sp"
+        tools:visibility="invisible" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
+    <Button
+        android:id="@+id/btnRestab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/password2"
-        android:inputType="textPassword"
-        android:translationY="200sp" />
+        android:text="Reestablecer"
+        android:translationY="270sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:translationY="300sp"
+        app:srcCompat="@drawable/user" />
+
+    <Button
+        android:id="@+id/Inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesion"
+        android:translationY="2sp" />
 
 </LinearLayout>

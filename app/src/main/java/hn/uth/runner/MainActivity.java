@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     EditText Correo;
     EditText Contraseña;
-    TextView contra;
-    Button Sesion;
+    Button Sesion,olvide;
     Button Registro;
 
     @Override
@@ -37,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String emailAddress = "user@example.com";
+        Intent intento = new Intent(this, Recuperacion.class);
+
 
         Correo= (EditText) findViewById(R.id.txtCorreo);
-        contra = (TextView) findViewById(R.id.Urlpass);
-        Contraseña= (EditText) findViewById(R.id.txtContraseña);
 
+        Contraseña= (EditText) findViewById(R.id.txtContraseña);
+        olvide = (Button) findViewById(R.id.btnRes);
         Sesion= (Button) findViewById(R.id.btSesion);
         Registro= (Button) findViewById(R.id.btRegistro);
 
@@ -114,20 +113,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        contra.setOnClickListener(new View.OnClickListener() {
+        olvide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                auth.sendPasswordResetEmail(emailAddress)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "Email sent.");
-                                }
-                            }
-                        });
+                startActivity(intento);
             }
         });
+
+
     }
 
 
