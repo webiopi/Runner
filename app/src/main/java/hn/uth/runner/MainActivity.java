@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     EditText Correo;
     EditText Contraseña;
-
-    Button Sesion;
+    Button Sesion,olvide;
     Button Registro;
 
     @Override
@@ -36,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        Intent intento = new Intent(this, Recuperacion.class);
+
 
         Correo= (EditText) findViewById(R.id.txtCorreo);
-        Contraseña= (EditText) findViewById(R.id.txtContraseña);
 
+        Contraseña= (EditText) findViewById(R.id.txtContraseña);
+        olvide = (Button) findViewById(R.id.btnRes);
         Sesion= (Button) findViewById(R.id.btSesion);
         Registro= (Button) findViewById(R.id.btRegistro);
 
@@ -109,7 +112,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        olvide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intento);
+            }
+        });
+
+
     }
+
+
 
     public void MostrarHome(String correo, ProviderType proveedor) {
         Intent intent = new Intent(this, HomeActivity.class);
