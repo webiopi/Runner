@@ -3,6 +3,7 @@ package hn.uth.runner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Recuperacion extends AppCompatActivity {
+public class Recuperacion extends AppCompatActivity{
 
     private static final String TAG = "Recuperacion";
 
@@ -80,7 +81,7 @@ public class Recuperacion extends AppCompatActivity {
     }
 
     private void resetPassword() {
-        mAuth.setLanguageCode("es");
+       // mAuth.setLanguageCode("es");
         mAuth.sendPasswordResetEmail(Email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
