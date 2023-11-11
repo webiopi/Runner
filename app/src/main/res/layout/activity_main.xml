@@ -96,4 +96,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/Urlpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="104dp"
+        android:text="Restablecimiento de Contraseña"
+        android:textAllCaps="false"
+        android:textColor="#D20E3950"
+        android:textColorLink="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContraseña" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

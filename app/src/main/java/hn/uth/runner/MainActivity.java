@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     EditText Correo;
     EditText Contraseña;
-
+    TextView contra;
     Button Sesion;
     Button Registro;
 
@@ -36,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String emailAddress = "user@example.com";
 
         Correo= (EditText) findViewById(R.id.txtCorreo);
+        contra = (TextView) findViewById(R.id.Urlpass);
         Contraseña= (EditText) findViewById(R.id.txtContraseña);
 
         Sesion= (Button) findViewById(R.id.btSesion);
@@ -109,7 +113,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        contra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.sendPasswordResetEmail(emailAddress)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "Email sent.");
+                                }
+                            }
+                        });
+            }
+        });
     }
+
+
 
     public void MostrarHome(String correo, ProviderType proveedor) {
         Intent intent = new Intent(this, HomeActivity.class);
