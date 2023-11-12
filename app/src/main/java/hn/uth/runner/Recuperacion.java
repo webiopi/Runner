@@ -25,7 +25,6 @@ public class Recuperacion extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
     EditText Correo;
-    EditText Contra1;  //Contraseña
     Button Reestablecer;
     Button Inicio;
     private ProgressDialog mDialog;
@@ -38,7 +37,6 @@ public class Recuperacion extends AppCompatActivity{
 
         Reestablecer = (Button) findViewById(R.id.btnRestab);
         Correo = (EditText) findViewById(R.id.EtCorreo);
-        Contra1 = (EditText) findViewById(R.id.etContra);
         Inicio = (Button) findViewById(R.id.Inicio);
 
         mDialog = new ProgressDialog(this);
