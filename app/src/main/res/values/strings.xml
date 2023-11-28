@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Runner</string>
+    <string name="title">Reestablecimiento de Contraseña</string>
+    <string name="password">Contraseña</string>
+    <string name="password2">Confirme la Contraseña</string>
+    <string name="name">Ingrese Su Correo</string>
 </resources>

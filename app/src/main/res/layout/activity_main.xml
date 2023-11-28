@@ -36,15 +36,13 @@
 
     <Button
         android:id="@+id/btSesion"
-        android:layout_width="0dp"
+        android:layout_width="312dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="24dp"
         android:text="Iniciar Sesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRes" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -95,5 +93,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:text="Restablecimiento de Contraseña"
+        android:textColor="#3B9AD8"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContraseña" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
