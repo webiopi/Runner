@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -24,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     EditText Correo;
     EditText Contraseña;
-
-    Button Sesion;
+    Button Sesion,olvide;
     Button Registro;
 
     @Override
@@ -35,13 +36,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        Intent intento = new Intent(this, Recuperacion.class);
+
 
         Correo= (EditText) findViewById(R.id.txtCorreo);
-        Contraseña= (EditText) findViewById(R.id.txtContraseña);
 
+        Contraseña= (EditText) findViewById(R.id.txtContraseña);
+        olvide = (Button) findViewById(R.id.btnRes);
         Sesion= (Button) findViewById(R.id.btSesion);
         Registro= (Button) findViewById(R.id.btRegistro);
-
 
         mAuth = FirebaseAuth.getInstance();
         Registro.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                ProviderType proveedor = new ProviderType("BASICA");
-                                MostrarHome(Correo.getText().toString(), proveedor);
-                                Toast.makeText(getApplicationContext(), "El registro se ha creado con exito", Toast.LENGTH_LONG).show();
                                 final FirebaseUser user = mAuth.getCurrentUser();
                                 user.sendEmailVerification()
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         Sesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +112,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        olvide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intento);
+            }
+        });
+
+
     }
+
+
+
     public void MostrarHome(String correo, ProviderType proveedor) {
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra("correo", correo);
